@@ -4,7 +4,7 @@ namespace Com.InfallibleCode.TurnBasedGame
 {
     public abstract class State
     {
-        protected readonly BattleSystem _system;
+        protected readonly BattleSystem _system; //dont use readonly
 
         public State(BattleSystem system)
         {
