@@ -7,12 +7,14 @@ public class AISystem : StateMachine
     public GameObject waypointParent;
     public GameObject player;
     public GameObject enemy;
+    public float lerpSpeed = 0.5f;
     public enum states{Idle, Patrol, Chase};
-   [HideInInspector] public states newState = states.Idle;
+    [HideInInspector] public states newState = states.Idle;
+    [HideInInspector] public int i = 0;
 
     void Start()
     {
-        //call the setup AI function
+        SetState(new BeginState(this));
     }
 
     public void IdleButton()
@@ -41,16 +43,16 @@ public class AISystem : StateMachine
         switch(newState)
         {
             case states.Idle:
-                //do the setting of the states in here instead of their classes
+                SetState(new IdleState(this));
                 break;
             case states.Patrol:
-                //do the setting of the states in here instead of their classes
+                SetState(new PatrolState(this));
                 break;
             case states.Chase:
-                //do the setting of the states in here instead of their classes
+                SetState(new ChaseState(this));
                 break;
-            
         }
+        StartCoroutine(State.DoAction());
     }
 
 

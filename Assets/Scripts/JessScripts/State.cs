@@ -25,4 +25,16 @@ public abstract class State
         {
             yield break;
         }
+
+        public void Animate(GameObject obj, string condition, bool boolean)
+        {
+            obj.GetComponent<Animator>().SetBool(condition, boolean);
+        }
+
+        public void FaceMovementDirection(GameObject goal, GameObject AI)
+        {
+            Vector3 dir = (goal.transform.position - AI.transform.position).normalized;
+            AI.transform.forward = dir;
+            AI.transform.Translate(Vector3.forward * _aISystem.lerpSpeed * Time.deltaTime);
+        }
 }
