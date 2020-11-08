@@ -6,4 +6,4 @@ Inspired by this tutorial: https://www.youtube.com/watch?v=G1bd75R10m4&ab_channe
 1) Press play
 2) Choose/ click between: Idle, Patrol, Chase
 3) Choose/ click on a different option to see how it changes
-4)Observe the AI movement and animations
+4) Observe the AI movement and animations
