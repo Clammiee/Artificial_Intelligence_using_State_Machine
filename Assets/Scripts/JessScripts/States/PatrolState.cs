@@ -25,12 +25,12 @@ public class PatrolState : State
         {
            if(_aISystem.enemy.transform.position != _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position)
             {
-                if(Vector3.Distance(_aISystem.enemy.transform.position, _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position) > 1)
+                if(Vector3.Distance(_aISystem.enemy.transform.position, _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position) > _aISystem.distanceBeforeTeleport)
                 {
                     FaceMovementDirection(_aISystem.waypointParent.transform.GetChild(_aISystem.i).gameObject, _aISystem.enemy);
                     _aISystem.enemy.transform.position = Vector3.Lerp(_aISystem.enemy.transform.position, _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position, _aISystem.lerpSpeed * Time.deltaTime);
                 }   
-                else if(Vector3.Distance(_aISystem.enemy.transform.position, _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position) <= 1)
+                else if(Vector3.Distance(_aISystem.enemy.transform.position, _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position) <= _aISystem.distanceBeforeTeleport)
                 {
                     _aISystem.enemy.transform.position = _aISystem.waypointParent.transform.GetChild(_aISystem.i).transform.position;
                 }

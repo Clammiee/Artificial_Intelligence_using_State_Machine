@@ -11,6 +11,7 @@ public class AISystem : StateMachine
     public enum states{Idle, Patrol, Chase};
     [HideInInspector] public states newState = states.Idle;
     [HideInInspector] public int i = 0;
+    public float distanceBeforeTeleport = 0.5f;
 
     void Start()
     {

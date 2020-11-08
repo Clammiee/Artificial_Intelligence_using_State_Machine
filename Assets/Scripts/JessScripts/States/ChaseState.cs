@@ -20,7 +20,7 @@ public class ChaseState : State
 
     public void ChaseMovement()
     {
-        if(Vector3.Distance(_aISystem.enemy.transform.position, _aISystem.player.transform.position) > 1)
+        if(Vector3.Distance(_aISystem.enemy.transform.position, _aISystem.player.transform.position) > _aISystem.distanceBeforeTeleport)
         {
             FaceMovementDirection(_aISystem.player.gameObject, _aISystem.enemy);
             _aISystem.enemy.transform.position = Vector3.Lerp( _aISystem.enemy.transform.position, _aISystem.player.transform.position, _aISystem.lerpSpeed * Time.deltaTime);
